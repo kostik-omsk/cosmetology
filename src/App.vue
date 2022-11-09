@@ -8,7 +8,7 @@
   <header>
     <AppNavbar />
   </header>
-  <main class="wrap">
+  <main>
     <RouterView />
   </main>
   <footer>

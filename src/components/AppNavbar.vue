@@ -42,7 +42,7 @@
       });
       onMounted(() => {
         aniMenu
-          .set('#app', { height: '90%', overflow: 'clip' })
+          .set('#app', { height: '90%', overflow: 'hidden' })
           .to('#app', {
             scale: 0.88,
             x: '380px',

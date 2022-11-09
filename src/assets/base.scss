@@ -18,26 +18,17 @@ $mygreen: #a3dc59;
 *::after {
   box-sizing: border-box;
 }
+
 html,
 body {
   overflow-x: hidden;
-  height: 100%;
-  z-index: -10;
+  height: 100vh;
 }
-aside,
-nav,
-footer,
-header,
-section,
-main {
-  display: block;
-}
-
 body {
   position: relative;
-  background-color: #4f4f4f;
+  background-color: $myprimary;
+  z-index: -10;
 }
-
 a {
   text-decoration: none;
 }

@@ -14,14 +14,13 @@
         show.value = false;
       };
 
-      return { listMenu, closeMenuMobile };
+      return { listMenu, closeMenuMobile, show };
     },
   };
 </script>
 <template>
-  <div class="menu-list">
+  <div class="menu-list" v-show="show">
     <button @click="closeMenuMobile" class="close-menu"></button>
-
     <div class="inner">
       <div class="menu-container">
         <a class="item-menu" href="tel:+79133851386">
@@ -45,12 +44,12 @@
 <style lang="scss">
   .menu-list {
     display: flex;
-    position: fixed;
+    position: absolute;
     z-index: -1;
     top: 0;
     left: 0;
     padding: 84px 40px;
-    height: 100vh;
+    height: 100%;
     min-width: 390px;
     transform: none;
     overflow: hidden;
