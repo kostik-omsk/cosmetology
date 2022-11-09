@@ -38,12 +38,11 @@
         } else {
           aniMenu.reverse();
           gsap.delayedCall(0.6, () => killTimeline(aniMenu));
-          // aniMenu.set('#app', { height: '100%' });
         }
       });
       onMounted(() => {
         aniMenu
-          .set('#app', { height: '90%', overflow: 'hiden' })
+          .set('#app', { height: '90%', overflow: 'clip' })
           .to('#app', {
             scale: 0.88,
             x: '380px',
