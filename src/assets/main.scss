@@ -1,0 +1,15 @@
+/*bootsrap*/
+@import '../../node_modules/bootstrap/scss/bootstrap';
+@import '../../node_modules/bootstrap-icons/font/bootstrap-icons.css';
+// Import all of Bootstrap's CSS
+
+/*font*/
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700;800;900&display=swap');
+@import './base.scss';
+#app {
+  min-height: 100%;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  background-color: #fff;
+}

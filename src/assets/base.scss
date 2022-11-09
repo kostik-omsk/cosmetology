@@ -1,0 +1,49 @@
+/* variables */
+$myprimary: #4c4c4c;
+$secondary: #ebebeb;
+$warning: #da0f41;
+$mygreen: #a3dc59;
+
+/* base styles  */
+* {
+  margin: 0;
+  padding: 0;
+  border: none;
+  font-family: 'Nunito', sans-serif;
+  color: $myprimary;
+  box-sizing: border-box;
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+html,
+body {
+  overflow-x: hidden;
+  height: 100%;
+  z-index: -10;
+}
+aside,
+nav,
+footer,
+header,
+section,
+main {
+  display: block;
+}
+
+body {
+  position: relative;
+  background-color: #4f4f4f;
+}
+
+a {
+  text-decoration: none;
+}
+ul {
+  margin: 0;
+}
+li {
+  list-style-type: none !important;
+}
