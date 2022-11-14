@@ -1,4 +1,17 @@
-<script lang="ts"></script>
+<script lang="ts">
+  import AppCardService from '../components/AppCardService.vue';
+  import { storeToRefs } from 'pinia';
+  import { useListServices } from '../stores/ListServices';
+  export default {
+    components: { AppCardService },
+    setup() {
+      const listServices = useListServices();
+      const { listService } = storeToRefs(listServices);
+
+      return { listService };
+    },
+  };
+</script>
 
 <template>
   <section class="intro">
@@ -26,21 +39,32 @@
       <img class="" src="../assets/img/nastia__bg.png" alt="nastia" />
     </div>
   </section>
-  <section class="services">
-    <div>
-      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsam laborum
-      error molestias facere dignissimos voluptatum eum eveniet inventore
-      consequatur! Optio cupiditate voluptate id deserunt ab. Animi libero
-      voluptatem deserunt eveniet. Voluptatibus vitae, nemo saepe odio natus
-      tenetur molestias excepturi dolore suscipit consectetur fugiat, minima nam
-      amet recusandae sed. Vel quam quibusdam voluptates. Non quos, inventore
-      impedit illum quaerat cumque commodi! Praesentium fugiat soluta
-      consequatur doloribus nulla facilis accusamus est deserunt, repellat
-      voluptatibus iure hic minima culpa dolores dicta eum velit aliquid quis
-      quas ullam. Facilis sit ex illum suscipit quas. Iste dolore obcaecati
-      minus natus rerum ut quae fuga dolores assumenda. Quo aut eos corrupti
-      quidem nobis, officia eveniet provident tenetur asperiores, perferendis
-      voluptatibus voluptatum ea et laudantium autem amet.
+  <section class="services section">
+    <div class="section-header">
+      <h2 class="section-header__title">Пять основных направлений</h2>
+      <p class="section-header__description">Ваш путь к совершенству</p>
+    </div>
+    <div class="card-list">
+      <AppCardService
+        v-for="(service, i) in listService"
+        :key="i"
+        :service="service"
+      />
+    </div>
+  </section>
+  <section>
+    <div class="logo-bar section">
+      <div class="section-header">
+        <h2 class="section-header__title">
+          Косметика по уходу за лицом и телом
+        </h2>
+        <p class="section-header__description">В продаже представлены бренды</p>
+      </div>
+      <!-- <div class="row justify-content-center align-items-center">
+        <div class="logo-bar__item" v-for="logo in logoBar" :key="logo.name">
+          <img :src="require('@/assets/images/logo/' + logo.name)" />
+        </div>
+      </div> -->
     </div>
   </section>
 </template>
@@ -95,6 +119,25 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
+      }
+    }
+  }
+  .section {
+    padding: 20px 0;
+    .section-header {
+      text-align: center;
+      &__title {
+        font-size: 1.5rem;
+        font-weight: bold;
+        @media (max-width: 425px) {
+          font-size: 1.3rem;
+        }
+      }
+      &__description {
+        font-size: 1.3rem;
+        @media (max-width: 425px) {
+          font-size: 1.1rem;
+        }
       }
     }
   }

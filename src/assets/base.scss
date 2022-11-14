@@ -41,3 +41,24 @@ ul {
 li {
   list-style-type: none !important;
 }
+button,
+.btn {
+  background: $secondary;
+  border-radius: 8px;
+  border: 0;
+  padding: 8px 12px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-block;
+}
+button:hover,
+.btn:hover {
+  background: $myprimary;
+  color: $mygreen;
+}
+button:disabled {
+  opacity: 0.5;
+  color: $mygreen;
+  background: $secondary;
+  cursor: not-allowed;
+}
