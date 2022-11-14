@@ -154,7 +154,7 @@
           font-weight: 800;
         }
       }
-      @media (max-width: 570px) {
+      @media (max-width: 996px) {
         display: none;
       }
     }

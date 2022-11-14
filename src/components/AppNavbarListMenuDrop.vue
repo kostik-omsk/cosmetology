@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { computed } from 'vue';
+  import { computed, onMounted } from 'vue';
   import { storeToRefs } from 'pinia';
   import { useListMenu } from '../stores/ListMenu';
 
@@ -11,7 +11,7 @@
       const { toggleMenu, isOpen } = storeToRefs(menuStore);
 
       const isFolder = computed(() => {
-        return props.menu.children !== undefined;
+        return props.menu.subMenu !== undefined;
       });
       const toggle = () => {
         if (isFolder.value) {
@@ -33,7 +33,7 @@
 
     <ul class="sub-menu" v-show="isOpen">
       <AppNavbarListMenuDrop
-        v-for="dropMenu in menu.children"
+        v-for="dropMenu in menu.subMenu"
         :key="dropMenu.name"
         :menu="dropMenu"
         @click="toggleMenu"

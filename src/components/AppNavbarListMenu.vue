@@ -19,7 +19,7 @@
   };
 </script>
 <template>
-  <div class="menu-list" v-show="show">
+  <div class="menu-list">
     <button @click="closeMenuMobile" class="close-menu"></button>
     <div class="inner">
       <div class="menu-container">
@@ -44,7 +44,7 @@
 <style lang="scss">
   .menu-list {
     display: flex;
-    position: absolute;
+    position: fixed;
     z-index: -1;
     top: 0;
     left: 0;
@@ -52,8 +52,7 @@
     height: 100%;
     min-width: 390px;
     transform: none;
-    overflow: hidden;
-    box-sizing: border-box;
+    overflow: auto;
     .close-menu {
       position: absolute;
       top: 20px;
@@ -103,8 +102,9 @@
           cursor: pointer;
           position: relative;
           color: #fff;
-          font-size: 24px;
-          font-weight: 800;
+          font-size: 1.3rem;
+          letter-spacing: 1px;
+          font-weight: 400;
           @media (max-height: 500px) {
             font-size: 18px;
           }

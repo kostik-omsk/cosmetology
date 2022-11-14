@@ -7,7 +7,7 @@ export const useListMenu: any = defineStore('listMenuStore', {
       {
         title: 'Услуги',
         name: 'services',
-        children: [
+        subMenu: [
           { title: 'Косметология', name: 'cosmetology' },
           { title: 'Перманентный макияж', name: 'makeup' },
           { title: 'Коррекция фигуры', name: 'bodyshaping' },
