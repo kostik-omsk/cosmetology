@@ -46,8 +46,8 @@
     </div>
     <div class="card-list">
       <AppCardService
-        v-for="(service, i) in listService"
-        :key="i"
+        v-for="service in listService"
+        :key="service.id"
         :service="service"
       />
     </div>
