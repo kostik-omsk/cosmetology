@@ -13,45 +13,47 @@
   };
 </script>
 <template>
-  <div class="card-service">
-    <div class="card-service__thumbnail">
-      <img :src="getImgUrl(service.urlName)" :alt="service.urlName" />
+  <div class="my-card mb-4">
+    <div class="row justify-content-center">
+      <div class="col-md-4 thumbnail">
+        <img
+          class="my-card__img rounded mx-auto"
+          :src="getImgUrl(service.urlName)"
+          alt="Card image"
+        />
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h3 class="card-title mb-1">{{ service.title }}</h3>
+          <p class="">{{ service.description }}</p>
+          <button>ыыыыы</button>
+        </div>
+      </div>
     </div>
-    <div class="card-service__body">
-      <h5 class="card-service__title">{{ service.title }}</h5>
-      <p class="card-service__description">{{ service.description }}</p>
-    </div>
-    <button>нажать</button>
   </div>
 </template>
 
 <style lang="scss" scoped>
-  .card-service {
-    display: flex;
-    align-items: center;
-    padding: 20px;
-    border-radius: 10px;
-    background: white;
-    margin: 16px 0;
-    transition: all ease 0.2s;
-    &:hover {
-      box-shadow: 1px 2px 3px rgba(50, 50, 50, 0.05);
-      transform: scale(1.02);
-      transition: all ease 0.2s;
-    }
-    &__thumbnail {
-      max-width: 150px;
-      max-height: 150px;
-      overflow: hidden;
-      border-radius: 10px;
-      img {
+  .my-card {
+    padding: 0 12px;
+    .thumbnail {
+      max-height: 340px;
+      max-width: 250px;
+      @media (max-width: 768px) {
+        max-height: 250px;
         max-width: 100%;
-        max-height: 100%;
-        display: block;
       }
     }
-    &__body {
-      margin: 0 30px;
+    &__img {
+      max-width: 100%;
+      height: 100%;
+      object-fit: cover;
+      @media (max-width: 768px) {
+        width: 100%;
+      }
+    }
+    .card-title {
+      font-weight: 700;
     }
   }
 </style>

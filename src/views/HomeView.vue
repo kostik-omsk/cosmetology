@@ -7,8 +7,20 @@
     setup() {
       const listServices = useListServices();
       const { listService } = storeToRefs(listServices);
+      const logoBar = [
+        { name: 'gigi.svg' },
+        { name: 'city.svg' },
+        { name: 'uton.svg' },
+        { name: 'storyderm.svg' },
+        { name: 'Isov.svg' },
+        { name: 'evasion.svg' },
+      ];
+      const getImgUrl = (url: string) => {
+        const imgUrl = new URL(`/src/assets/logo/${url}`, import.meta.url).href;
+        return imgUrl;
+      };
 
-      return { listService };
+      return { listService, logoBar, getImgUrl };
     },
   };
 </script>
@@ -40,9 +52,11 @@
     </div>
   </section>
   <section class="services section">
-    <div class="section-header">
-      <h2 class="section-header__title">Пять основных направлений</h2>
-      <p class="section-header__description">Ваш путь к совершенству</p>
+    <div class="wrap-bg">
+      <div class="section-header">
+        <h2 class="section-header__title">Пять основных направлений</h2>
+        <p class="section-header__description">Ваш путь к совершенству</p>
+      </div>
     </div>
     <div class="card-list">
       <AppCardService
@@ -52,19 +66,20 @@
       />
     </div>
   </section>
-  <section>
-    <div class="logo-bar section">
+
+  <section class="logo-bar section">
+    <div class="wrap-bg">
       <div class="section-header">
         <h2 class="section-header__title">
           Косметика по уходу за лицом и телом
         </h2>
         <p class="section-header__description">В продаже представлены бренды</p>
       </div>
-      <!-- <div class="row justify-content-center align-items-center">
-        <div class="logo-bar__item" v-for="logo in logoBar" :key="logo.name">
-          <img :src="require('@/assets/images/logo/' + logo.name)" />
-        </div>
-      </div> -->
+    </div>
+    <div class="row justify-content-center align-items-center">
+      <div class="logo-bar__item" v-for="logo in logoBar" :key="logo.name">
+        <img :src="getImgUrl(logo.name)" :alt="logo.name" />
+      </div>
     </div>
   </section>
 </template>
@@ -123,21 +138,42 @@
     }
   }
   .section {
-    padding: 20px 0;
-    .section-header {
-      text-align: center;
-      &__title {
-        font-size: 1.5rem;
-        font-weight: bold;
-        @media (max-width: 425px) {
+    .wrap-bg {
+      height: 115px;
+      margin-bottom: 30px;
+      .section-header {
+        position: absolute;
+        left: 0;
+        min-width: 100vw;
+        background: #4c4c4c;
+        text-align: center;
+        padding: 20px 0;
+
+        &__title {
+          color: #a3dc59;
+          font-weight: bold;
+          margin: 0;
+          @media (max-width: 425px) {
+            font-size: 1.3rem;
+          }
+        }
+        &__description {
+          color: #a3dc59;
           font-size: 1.3rem;
+          margin: 0;
+          @media (max-width: 425px) {
+            font-size: 1.1rem;
+          }
         }
       }
-      &__description {
-        font-size: 1.3rem;
-        @media (max-width: 425px) {
-          font-size: 1.1rem;
-        }
+    }
+  }
+  .logo-bar {
+    .logo-bar__item {
+      max-width: 190px;
+      padding: 5px 10px;
+      @media (max-width: 768px) {
+        max-width: 130px;
       }
     }
   }
